@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="form">
+    <view class="login">
+      <text class="{{login==true?'active':''}}" catchtap="handleLogin">登录</text>
+      <text class="{{login==false?'active':''}}" catchtap="handleLogin">注册</text>
+    </view>
+    <view class="account">
+      <view>
+        <van-icon name="fire" />
+      </view>
+      <view>
+        <input type="text" model:value="{{account}}" placeholder="请输入账号" bindblur="handleAccount"/>
+      </view>
+    </view>
+    <view class="password">
+      <view>
+        <van-icon name="fire" />
+      </view>
+      <view>
+        <input type="text" model:value="{{password}}" placeholder="请输入密码" bindblur="handlePassword"/>
+      </view>
+    </view>
+    <view class="comfirm" catchtap="handleComfirm">{{buttonText}}</view>
+  </view>
+</view>

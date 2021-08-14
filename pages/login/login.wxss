@@ -1,0 +1,36 @@
+.container{
+  height: 100vh;
+  background: linear-gradient(to bottom left, #81b8f2, #fff);
+}
+.form{
+  padding: 375rpx 50rpx 0 50rpx;
+}
+.login>text{
+  color: #617fe0;
+  font-size: 30rpx;
+}
+.login>text:last-child{
+  margin-left: 0.5em;
+}
+.login>.active{
+  font-size: 36rpx;
+  border-bottom: 2px solid #617fe0;
+}
+.account,.password{
+  display: flex;
+  padding-top: 30rpx;
+}
+.account>view:last-child,.password>view:last-child{
+  margin-left: 1em;
+  font-size: 30rpx;
+}
+.comfirm{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 30rpx auto;
+  border-radius: 5rpx;
+  background: #377df6;
+  color: #fff;
+  text-align: center;
+}
