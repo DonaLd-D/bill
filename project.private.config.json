@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -10,14 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/self/self",
-          "pathName": "pages/self/self",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }
