@@ -46,7 +46,7 @@ const request = (config = {}) => {
  */
 request.defaults = {
   // 基准路径
-  baseURL: ""
+  baseURL: "http://api.chennick.wang"
 }
 
 /**

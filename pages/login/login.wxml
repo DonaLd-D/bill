@@ -9,7 +9,7 @@
         <van-icon name="fire" />
       </view>
       <view>
-        <input type="text" model:value="{{account}}" placeholder="请输入账号" bindblur="handleAccount"/>
+        <input type="text" model:value="{{account}}" placeholder="请输入账号" bindinput="handleInput" bindblur="handleAccount"/>
       </view>
     </view>
     <view class="password">
@@ -17,9 +17,10 @@
         <van-icon name="fire" />
       </view>
       <view>
-        <input type="text" model:value="{{password}}" placeholder="请输入密码" bindblur="handlePassword"/>
+        <input type="text" model:value="{{password}}" placeholder="请输入密码" bindinput="handleInput" bindblur="handlePassword"/>
       </view>
     </view>
     <view class="comfirm" catchtap="handleComfirm">{{buttonText}}</view>
   </view>
+  <van-dialog id="van-dialog" />
 </view>

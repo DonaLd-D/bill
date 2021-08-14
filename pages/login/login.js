@@ -1,4 +1,6 @@
-// pages/login/login.js
+import request from '../../utils/request'
+import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
+let app=getApp()
 Page({
   /**
    * 页面的初始数据
@@ -16,6 +18,9 @@ Page({
       login:!bool
     })
   },
+  handleInput(){
+    //此方法只为取消报错
+  },
   handleAccount(e){
     const value=e.detail.value
     this.setData({
@@ -29,7 +34,82 @@ Page({
     })
   },
   handleComfirm(){
-
+    if(this.data.account==''){
+      Dialog.alert({
+        message: '请输入账号',
+      })
+    }else if(this.data.password==''){
+      Dialog.alert({
+        message: '请输入密码',
+      })
+    }else if(!this.data.login){
+      let data={
+        username:this.data.account,
+        password:this.data.password
+      }
+      request({
+        url:'/api/user/register',
+        method:'POST',
+        data:data,
+        header:{
+          'content-type':'application/x-www-form-urlencoded'
+        }
+      }).then(res=>{
+        console.log(res)
+        if(res.data.code==200){
+          let msg=res.data.msg
+          Dialog.alert({
+            message: msg,
+          }).then(()=>{
+            this.setData({
+              account:'',
+              password:''
+            })
+          })
+        }else{
+          Dialog.alert({
+            message: res.data.msg,
+          }).then(()=>{
+            this.setData({
+              account:''
+            })
+          })
+        }
+      })
+    }else if(this.data.login){
+      request({
+        url:'/api/user/login',
+        method:'POST',
+        data:{
+          username:this.data.account,
+          password:this.data.password
+        },
+        header:{
+          'content-type':'application/x-www-form-urlencoded'
+        }
+      }).then(res=>{
+        console.log(res)
+        if(res.data.code==200){
+          app.token=res.data.data.token
+          Dialog.alert({
+            message: res.data.message,
+          }).then(()=>{
+            this.setData({
+              account:'',
+              password:''
+            })
+          })
+        }else{
+          Dialog.alert({
+            message: res.data.message,
+          }).then(()=>{
+            this.setData({
+              account:''
+            })
+          })
+        }
+      })
+    }
   },
 
   /**
