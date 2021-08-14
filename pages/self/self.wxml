@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="header">
+    <view class="left">
+      <text>昵称：{{userName}}</text>
+      <text>peace and love.</text>
+    </view>
+    <view class="right">
+      <image src="../../images/wall.jpg"></image>
+    </view>
+  </view>
+  <view class="panel">
+    <view class="info-modify">
+      <view><van-icon name="cluster-o" />  用户信息修改</view>
+      <view><van-icon name="arrow" color="#aaa"/></view>
+    </view>
+    <view class="resetPass">
+      <view><van-icon name="cluster-o" />  重制密码</view>
+      <view><van-icon name="arrow" color="#aaa"/></view>
+    </view>
+    <view>
+      <view><van-icon name="cluster-o" />  关于我们</view>
+      <view><van-icon name="arrow" color="#aaa"/></view>
+    </view>
+  </view>
+  <view class="logOut">退出登录</view>
+</view>

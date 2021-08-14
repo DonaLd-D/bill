@@ -17,7 +17,7 @@
         <van-icon name="fire" />
       </view>
       <view>
-        <input type="text" model:value="{{password}}" placeholder="请输入密码" bindinput="handleInput" bindblur="handlePassword"/>
+        <input type="password" model:value="{{password}}" placeholder="请输入密码" bindinput="handleInput" bindblur="handlePassword"/>
       </view>
     </view>
     <view class="comfirm" catchtap="handleComfirm">{{buttonText}}</view>

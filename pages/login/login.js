@@ -90,7 +90,7 @@ Page({
       }).then(res=>{
         console.log(res)
         if(res.data.code==200){
-          app.token=res.data.data.token
+          app.globalData.token=res.data.data.token
           Dialog.alert({
             message: res.data.message,
           }).then(()=>{

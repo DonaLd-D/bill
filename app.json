@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/login/login",
+    "pages/self/self",
     "pages/index/index"
   ],
   "window":{
