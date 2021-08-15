@@ -1,11 +1,11 @@
 <view class="container">
   <view class="header">
     <view class="left">
-      <text>昵称：{{userName}}</text>
+      <text>昵称：{{username}}</text>
       <text>peace and love.</text>
     </view>
     <view class="right">
-      <image src="../../images/wall.jpg"></image>
+      <image src="{{avatar}}"></image>
     </view>
   </view>
   <view class="panel">
@@ -22,5 +22,5 @@
       <view><van-icon name="arrow" color="#aaa"/></view>
     </view>
   </view>
-  <view class="logOut">退出登录</view>
+  <view class="logOut" catchtap="handleLogout">退出登录</view>
 </view>

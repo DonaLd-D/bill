@@ -1,18 +1,39 @@
 let app=getApp()
+import request from '../../utils/request'
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    userName:app.globalData.userName||'人类高质量程序员',
-    
+    username:'',
+    avatar:''
   },
-
+  handleLogout(){
+    app.globalData.token=''
+    app.globalData.username=''
+    wx.redirectTo({
+      url: '/pages/login/login',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    request({
+      url:'/api/user/get_userinfo',
+      header:{
+        'Authorization':app.globalData.token
+      }
+    }).then(res=>{
+      console.log(res)
+      if(res.data.code==200){
+        app.globalData.username=res.data.data.username
+        this.setData({
+          username:res.data.data.username,
+          avatar:res.data.data.avatar
+        })
+      }
+    })
   },
 
   /**

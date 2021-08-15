@@ -5,6 +5,6 @@ App({
   },
   globalData: {
     token:'',
-    userName:''
+    username:''
   }
 })

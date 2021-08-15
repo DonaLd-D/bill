@@ -51,7 +51,7 @@
   height: 80rpx;
   position: fixed;
   left: 25rpx;
-  bottom: 100rpx;
+  bottom: 50rpx;
   background: red;
   border-radius: 10rpx;
   color: #fff;
