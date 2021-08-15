@@ -1,1 +1,58 @@
-/* pages/personal/personal.wxss */
+.container{
+  border-top: 2rpx solid #ddd;
+  padding: 0 20rpx;
+  font-size: 32rpx;
+}
+.container>view:not(:last-child){
+  border-bottom: 2rpx solid #ddd;
+}
+.container>view:first-child{
+  height: 75rpx;
+  line-height: 75rpx;
+  font-size: 38rpx;
+  font-weight: 500;
+}
+.avatar>view:first-child{
+  margin-top: 50rpx;
+  padding-left: 16rpx;
+}
+.avatar>view:nth-child(2){
+  display: flex;
+  margin-bottom: 40rpx;
+}
+.avatar-img{
+  width: 125rpx;
+  height: 125rpx;
+  border: 2rpx solid #eee;
+}
+.avatar-img>image{
+  
+}
+.avatar-upload{
+  margin-left: 10rpx;
+  font-size: 24rpx;
+}
+.avatar-upload>view:last-child{
+  background: #377df6;
+  color: #fff;
+  width: 150rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 6rpx;
+  text-align: center;
+  font-size: 18rpx;
+  margin-top: 36rpx;
+}
+
+.signature>view:first-child{
+  margin-top: 50rpx;
+}
+.save{
+  background: #377df6;
+  color: #fff;
+  height: 75rpx;
+  line-height: 75rpx;
+  border-radius: 7rpx;
+  margin-top: 50rpx;
+  text-align: center;
+}

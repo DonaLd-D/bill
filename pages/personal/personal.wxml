@@ -18,5 +18,5 @@
       <input type="text"/>
     </view>
   </view>
-  <view>保存</view>
+  <view class="save">保存</view>
 </view>
