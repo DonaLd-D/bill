@@ -11,14 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/calc/calc",
-          "pathName": "pages/calc/calc",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }
