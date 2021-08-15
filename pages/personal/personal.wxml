@@ -1,0 +1,22 @@
+<view class="container">
+  <view>个人资料</view>
+  <view class="avatar">
+    <view>头像</view>
+    <view>
+      <view class="avatar-img">
+        <image src="{{}}"></image>
+      </view>
+      <view class="avatar-upload">
+        <view>支持jpg、png、jpeg格式大小200KB以内的图片</view>
+        <view>点击上传</view>
+      </view>
+    </view>
+  </view>
+  <view class="signature">
+    <view>个性签名</view>
+    <view>
+      <input type="text"/>
+    </view>
+  </view>
+  <view>保存</view>
+</view>
