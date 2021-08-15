@@ -33,6 +33,7 @@ Page({
       password:value
     })
   },
+  //注册或者登陆方法
   handleComfirm(){
     if(this.data.account==''){
       Dialog.alert({
@@ -57,13 +58,14 @@ Page({
       }).then(res=>{
         console.log(res)
         if(res.data.code==200){
-          let msg=res.data.msg
+          let msg=res.data.msg+'，请登录！'
           Dialog.alert({
             message: msg,
           }).then(()=>{
             this.setData({
               account:'',
-              password:''
+              password:'',
+              login:true
             })
           })
         }else{
@@ -98,13 +100,17 @@ Page({
               account:'',
               password:''
             })
+            wx.switchTab({
+              url: '/pages/account/account',
+            })
           })
         }else{
           Dialog.alert({
-            message: res.data.message,
+            message: res.data.msg,
           }).then(()=>{
             this.setData({
-              account:''
+              account:'',
+              password:''
             })
           })
         }
