@@ -2,14 +2,14 @@
   <view class="header">
     <view class="left">
       <text>昵称：{{username}}</text>
-      <text>peace and love.</text>
+      <text>{{signature}}</text>
     </view>
     <view class="right">
       <image src="{{avatar}}"></image>
     </view>
   </view>
   <view class="panel">
-    <view class="info-modify">
+    <view class="info-modify" catchtap="toPersonal">
       <view><van-icon name="cluster-o" />  用户信息修改</view>
       <view><van-icon name="arrow" color="#aaa"/></view>
     </view>

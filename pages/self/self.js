@@ -6,7 +6,15 @@ Page({
    */
   data: {
     username:'',
-    avatar:''
+    avatar:'',
+    signature:''
+  },
+  toPersonal(){
+    let avatar=this.data.avatar
+    let signature=this.data.signature
+    wx.navigateTo({
+      url: `/pages/personal/personal?signature=${signature}&avatar=${avatar}`,
+    })
   },
   handleLogout(){
     app.globalData.token=''
@@ -30,7 +38,8 @@ Page({
         app.globalData.username=res.data.data.username
         this.setData({
           username:res.data.data.username,
-          avatar:res.data.data.avatar
+          avatar:res.data.data.avatar,
+          signature:res.data.data.signature
         })
       }
     })

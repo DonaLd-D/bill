@@ -1,18 +1,25 @@
 // pages/personal/personal.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    avatar:'',
+    signature:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if(options.avatar&&options.signature){
+      let avatar=options.avatar
+      let signature=options.signature
+      this.setData({
+        avatar:avatar,
+        signature:signature
+      })
+    }
   },
 
   /**

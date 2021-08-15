@@ -26,7 +26,8 @@
   border: 2rpx solid #eee;
 }
 .avatar-img>image{
-  
+  width: 125rpx;
+  height: 125rpx;
 }
 .avatar-upload{
   margin-left: 10rpx;
@@ -46,6 +47,10 @@
 
 .signature>view:first-child{
   margin-top: 50rpx;
+}
+input{
+  font-size: 24rpx;
+  color: #aaa;
 }
 .save{
   background: #377df6;

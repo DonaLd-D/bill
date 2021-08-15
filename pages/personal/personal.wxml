@@ -4,7 +4,7 @@
     <view>头像</view>
     <view>
       <view class="avatar-img">
-        <image src="{{}}"></image>
+        <image src="{{avatar}}"></image>
       </view>
       <view class="avatar-upload">
         <view>支持jpg、png、jpeg格式大小200KB以内的图片</view>
@@ -15,7 +15,7 @@
   <view class="signature">
     <view>个性签名</view>
     <view>
-      <input type="text"/>
+      <input model:value="{{signature}}" type="text"/>
     </view>
   </view>
   <view class="save">保存</view>
