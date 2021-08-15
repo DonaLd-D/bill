@@ -1,2 +1,60 @@
-<!--pages/account/account.wxml-->
-<text>pages/account/account.wxml</text>
+<view class="container">
+  <view class="header">
+    <view class="total">
+      <view>
+        <text>总支出：</text>
+        <text>¥102.00</text>
+      </view>
+      <view>
+        <text>总收入：</text>
+        <text>¥62.00</text>
+      </view>
+    </view>
+    <view class="allkind">
+      <view>
+        <view>全部类型</view>
+        <view>
+          <van-icon name="arrow-down" />
+        </view>
+      </view>
+      <view>
+        <view>2021-08</view>
+        <view>
+          <van-icon name="arrow-down" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="title">
+      <view>2021-08-15</view>
+      <view>
+        <view class="output">
+          <view>支</view>
+          <view>¥50.00</view>
+        </view>
+        <view class="income">
+          <view>收</view>
+          <view>¥12.00</view>
+        </view>
+      </view>
+    </view>
+    <view class="list-item">
+      <view>
+        <view>
+          <view class="list-icon">
+            <van-icon name="records" />
+          </view>
+          <view>转账</view>
+        </view>
+        <view class="time">01:54</view>
+      </view>
+      <view>+12.00</view>
+    </view>
+  </view>
+
+  <view class="writedown">
+    <van-icon name="records" />
+  </view>
+</view>

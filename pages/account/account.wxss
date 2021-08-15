@@ -1,1 +1,113 @@
-/* pages/account/account.wxss */
+.container{
+  min-height: 100vh;
+  background: #eee;
+}
+.header{
+  height: 125rpx;
+  background: #377df6;
+  color: #fff;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.total{
+  display: flex;
+}
+.total>view>text:first-child{
+  padding-left: .5em;
+}
+.total>view>text:last-child{
+  font-size: 42rpx;
+}
+.allkind{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20rpx;
+}
+.allkind>view{
+  margin-right: .5em;
+  padding: 0 15rpx;
+  border-radius: 20rpx;
+  background: #3170dd;
+  display: flex;
+  flex-direction: row;
+}
+.allkind>view>view:first-child{
+  margin-right: .5em;
+}
+
+.list{
+  background: #fff;
+  margin: 15rpx;
+  border: 2rpx solid #ddd;
+  border-radius: 15rpx;
+}
+.list>view:not(:last-child){
+  border-bottom: 2rpx solid #ddd;
+}
+.title{
+  background: #eee;
+  border-radius: 15rpx 15rpx 0 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx;
+}
+.title>view:first-child{
+  font-size: 36rpx;
+  font-weight: 600;
+}
+.title>view:last-child{
+  display: flex;
+}
+.output,.income{
+  display: flex;
+}
+.output>view:first-child,.income>view:first-child{
+  width: 40rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  background: #377df6;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+}
+.output>view:last-child,.income>view:last-child{
+  font-size: 22rpx;
+  padding-top: 11rpx;
+  margin:0 11rpx;
+}
+
+.list-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 15rpx 20rpx;
+}
+.list-item>view:last-child{
+  color: #f00;
+}
+.list-item>view>view:first-child{
+  display: flex;
+}
+.list-item>view>view:last-child{
+  margin-top: 24rpx;
+  font-size: 24rpx;
+}
+.list-icon{
+  color: #377df6;
+}
+
+.writedown{
+  width: 75rpx;
+  height: 75rpx;
+  line-height: 75rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 125rpx;
+  right: 25rpx;
+  text-align: center;
+  border-radius: 50%;
+  color: #377df6;
+  font-size: 48rpx;
+}
