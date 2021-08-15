@@ -1,2 +1,27 @@
-<!--pages/calc/calc.wxml-->
-<text>pages/calc/calc.wxml</text>
+<view class="container">
+  <view class="header">
+    <view class="calender">
+      <view>2021-08</view>
+      <view>
+        <van-icon name="notes-o" />
+      </view>
+    </view>
+    <view>共支出</view>
+    <view>¥112.00</view>
+    <view>共收入¥62.00</view>
+  </view>
+  <view class="content">
+    <view class="progress">
+      <view class="title">
+        <view>收支构成</view>
+        <view>
+          <text>支出</text>
+          <text>收入</text>
+        </view>
+      </view>
+      <view class="progress-list">
+      </view>
+    </view>
+    <view class="charts"></view>
+  </view>
+</view>

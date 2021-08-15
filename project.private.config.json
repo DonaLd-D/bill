@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/account/account",
-          "pathName": "pages/account/account",
+          "name": "pages/calc/calc",
+          "pathName": "pages/calc/calc",
           "query": "",
           "scene": null
         }

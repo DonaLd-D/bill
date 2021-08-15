@@ -1,1 +1,35 @@
-/* pages/calc/calc.wxss */
+.header{
+  height: 300rpx;
+  border-bottom: 20rpx solid #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+}
+.header>view{
+  margin-top: 15rpx;
+}
+.header>view:first-child{
+  display: flex;
+  background: #eee;
+  padding: 10rpx 10rpx;
+  border-radius: 5rpx;
+}
+.header>view>view:first-child{
+  border-right: 1px solid #aaa;
+  padding-right: 10rpx;
+}
+.header>view>view:last-child{
+  padding-left: 10rpx;
+}
+
+.header>view:nth-child(2){
+  color: #4082f6;
+}
+.header>view:nth-child(3){
+  color: #4082f6;
+  font-size: 48rpx;
+}
+.header>view:last-child{
+  color: #888;
+}
