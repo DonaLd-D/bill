@@ -16,6 +16,11 @@ Page({
       url: `/pages/personal/personal?signature=${signature}&avatar=${avatar}`,
     })
   },
+  toReset(){
+    wx.navigateTo({
+      url: '/pages/reset/reset',
+    })
+  },
   handleLogout(){
     app.globalData.token=''
     app.globalData.username=''

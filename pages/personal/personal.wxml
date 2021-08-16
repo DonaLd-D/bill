@@ -8,7 +8,9 @@
       </view>
       <view class="avatar-upload">
         <view>支持jpg、png、jpeg格式大小200KB以内的图片</view>
-        <view>点击上传</view>
+        <view catchtap="handleUpload">
+          点击上传
+        </view>
       </view>
     </view>
   </view>

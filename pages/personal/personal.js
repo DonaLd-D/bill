@@ -1,13 +1,17 @@
-// pages/personal/personal.js
+import request from '../../utils/request'
+let app=getApp()
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     avatar:'',
-    signature:''
+    signature:'',
+    files:[]
   },
-
+  handleUpload(){
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */

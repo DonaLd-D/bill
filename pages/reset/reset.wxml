@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="origin">
+    <view>原密码</view>
+    <view>
+      <input type="text" model:value="{{origin}}" placeholder="请输入原密码" data-id="origin" bindblur="handlePassword" bindinput="handleInput"/>
+    </view>
+  </view>
+  <view class="new">
+    <view>新密码</view>
+    <view>
+      <input type="password" model:value="{{newPassword}}" placeholder="请输入新密码" data-id="newOne" bindblur="handlePassword" bindinput="handleInput"/>
+    </view>
+  </view>
+  <view class="comfirm">
+    <view>确认密码</view>
+    <view>
+      <input type="password" model:value="{{comfirmPassword}}" placeholder="请再次输入新密码确认" data-id="comfirm" bindblur="handlePassword" bindinput="handleInput"/>
+    </view>
+  </view>
+  <view class="btn" catchtap="handleSubmit">提交</view>
+</view>
+<van-dialog id="van-dialog" />

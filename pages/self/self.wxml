@@ -13,7 +13,7 @@
       <view><van-icon name="cluster-o" />  用户信息修改</view>
       <view><van-icon name="arrow" color="#aaa"/></view>
     </view>
-    <view class="resetPass">
+    <view class="resetPass" catchtap="toReset">
       <view><van-icon name="cluster-o" />  重制密码</view>
       <view><van-icon name="arrow" color="#aaa"/></view>
     </view>
