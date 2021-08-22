@@ -54,7 +54,47 @@
     </view>
   </view>
 
-  <view class="writedown">
+  <view class="writedown" catchtap="handleOpen">
     <van-icon name="records" />
   </view>
+  <van-popup 
+    position="bottom" 
+    show="{{ show }}" 
+    bind:close="handleClose"
+    custom-style="min-height: 20%;"
+    closeable
+    round>
+    <view class="show-header">
+      <view>
+        <text catchtap="handleTab" class="{{showOutputTab? 'input-tab-active':'input-tab-normal'}}">支出</text>
+        <text catchtap="handleTab" class="{{showOutputTab? 'input-tab-normal':'input-tab-active'}}">收入</text>
+      </view>
+      <view>
+          <view>08-22</view>
+          <view>
+            <van-icon name="arrow-down" />
+          </view>
+        </view>
+    </view>
+    <view class="show-input">
+      <view>¥</view>
+      <view>
+        <input type="number" />
+      </view>
+    </view>
+    <view class="show-tab">
+      <view wx:for="{{showOutputTab?outputTab:incomeTab}}" wx:key="{{item.name}}" data-id="{{item.id}}" data-type="{{item.type}}" class="{{outputActiveId==item.id||incomeActiveId==item.id?'activeTab':''}}" catchtap="handleActive">
+        {{item.name}}
+      </view>
+    </view>
+    <view class="show-text">
+      <view class="{{showTextarea?'textarea-active':'textarea-unactive'}}" catchtap="handleTextarea">
+        添加备注
+      </view>
+      <view wx:if="{{showTextarea}}">
+        <textarea placeholder="请输入备注信息"></textarea>
+      </view>
+    </view>
+  </van-popup>
+  <van-dialog id="van-dialog" />
 </view>
