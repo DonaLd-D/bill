@@ -8,13 +8,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    //添加消费账单相关数据
     popupShow:false,
     showOutputTab:true,
     outputTab:[],
     incomeTab:[],
     outputActiveId:1,
     incomeActiveId:11,
-    typeName:'',
+    typeName:'餐饮',
     showTextarea:false,
     selectDate:false,
     currentYear:getYearMonth(new Date()),
@@ -30,7 +31,13 @@ Page({
       return value;
     },
     cashValue:null,
-    textValue:null
+    textValue:null,
+    //消费列表相关数据
+    listTabShow:false,
+    listTabId:0,
+    list:[],
+    totalExpense:0,
+    totalIncome:0
   },
   handleOpen(){
     this.setData({popupShow:true})
@@ -41,7 +48,11 @@ Page({
   //选择记账类型，支出还是收入
   handleTab(){
     this.setData({
-      showOutputTab:!this.data.showOutputTab
+      showOutputTab:!this.data.showOutputTab,
+    },()=>{
+      this.setData({
+        typeName:this.data.showOutputTab?'餐饮':'工资'
+      })
     })
   },
   //选择消费类型
@@ -76,13 +87,20 @@ Page({
         currentMonth:getMonthDay(new Date(detail))
       });
     }else{
-      this.setData({currentYear:getYearMonth(new Date(detail))})
+      this.setData({
+        currentDate: detail,
+        currentYear:getYearMonth(new Date(detail))
+      })
     }
   },
   //确定选择日期
   handleDateConfirm(e){
     this.setData({
       selectDate:!this.data.selectDate
+    },()=>{
+      if(!this.data.popupShow){
+        this.getList()
+      }
     })
   },
   //取消选择日期
@@ -93,7 +111,10 @@ Page({
         currentMonth:getMonthDay(new Date())
       })
     }else{
-      this.setData({currentYear:getYearMonth(new Date())})
+      this.setData({
+        currentDate:new Date().getTime(),
+        currentYear:getYearMonth(new Date())
+      })
     }
     this.setData({
       selectDate:!this.data.selectDate
@@ -101,7 +122,7 @@ Page({
   },
   //输入金额事件
   handleCash(e){
-    console.log(e)
+    // console.log(e)
     let {value}=e.detail
     if(value){
       this.setData({
@@ -111,7 +132,7 @@ Page({
   },
   //文本框输入事件
   handleText(e){
-    console.log(e)
+    // console.log(e)
     let {value}=e.detail
     if(value){
       this.setData({
@@ -134,7 +155,7 @@ Page({
         type_id:this.data.showOutputTab?this.data.outputActiveId:this.data.incomeActiveId,
         type_name:this.data.typeName,
         date:this.data.currentDate,
-        pay_type:this.data.outputActiveId?1:2,
+        pay_type:this.data.showOutputTab?1:2,
         remark:this.data.textValue
       },
       header:{
@@ -144,9 +165,59 @@ Page({
     }).then(res=>{
       if(res.data.code==200){
         this.handleClose()
+        this.setData({
+          cashValue:null,
+          textValue:null
+        })
       }else{
         Dialog.alert({
           message: res.data.msg,
+        })
+      }
+    })
+  },
+  //列表tab选择
+  handleListTabShow(){
+    this.setData({
+      listTabShow:!this.data.listTabShow
+    })
+  },
+  //列表的消费类型
+  hanleListTab(e){
+    console.log(e)
+    let {id}=e.target.dataset
+    this.setData({
+      listTabId:Number(id)
+    },()=>{
+      this.getList()
+    })
+  },
+  //获取数据列表
+  getList(){
+    request({
+      url:'/api/bill/list',
+      data:{
+        date:this.data.currentYear,
+        page:1,
+        page_size:5,
+        type_id:this.data.listTabId==0?'all':String(this.data.listTabId)
+      },
+      header:{
+        'content-type':'application/x-www-form-urlencoded',
+        'Authorization':app.globalData.token
+      }
+    }).then(res=>{
+      console.log(res)
+      if(res.data.code==200){
+        let {list,totalExpense,totalIncome}=res.data.data
+        this.setData({
+          list:list,
+          totalExpense:totalExpense.toFixed(2),
+          totalIncome:totalIncome.toFixed(2)
+        })
+      }else{
+        Dialog.alert({
+          message:res.data.msg
         })
       }
     })
@@ -161,7 +232,7 @@ Page({
         'Authorization':app.globalData.token
       }
     }).then(res=>{
-      console.log(res)
+      // console.log(res)
       if(res.data.code==200){
         const {list}=res.data.data
         this.setData({
@@ -181,7 +252,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.getList()
   },
 
   /**

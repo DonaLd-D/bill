@@ -3,16 +3,16 @@
     <view class="total">
       <view>
         <text>总支出：</text>
-        <text>¥102.00</text>
+        <text>¥{{totalExpense}}</text>
       </view>
       <view>
         <text>总收入：</text>
-        <text>¥62.00</text>
+        <text>¥{{totalIncome}}</text>
       </view>
     </view>
     <view class="allkind">
       <view>
-        <view>全部类型</view>
+        <view catchtap="handleListTabShow">全部类型</view>
         <view>
           <van-icon name="arrow-down" />
         </view>
@@ -105,6 +105,25 @@
     bind:confirm="handleDateConfirm"
     bind:cancel="handleDateCancel"
     formatter="{{ formatter }}"/>
+  </van-popup>
+
+  <van-popup closeable position="bottom" show="{{ listTabShow }}" bind:close="handleListTabShow">
+    <view class="tabList">
+      <view>请选择类型</view>
+      <view data-id='0' catchtap="hanleListTab" id="{{listTabId==0?'listTabActive':''}}">全部类型</view>
+      <view class="outputList">
+        <view>支出</view>
+        <view id="{{listTabId==item.id?'listTabActive':''}}" catchtap="hanleListTab" data-id="{{item.id}}" wx:for="{{outputTab}}" wx:key="{{item.name}}">
+          {{item.name}}
+        </view>
+      </view>
+      <view class="incomeList">
+        <view>收入</view>
+        <view id="{{listTabId==item.id?'listTabActive':''}}" catchtap="hanleListTab" data-id="{{item.id}}" wx:for="{{incomeTab}}" wx:key="{{item.name}}">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
   </van-popup>
 
   <van-dialog id="van-dialog" />

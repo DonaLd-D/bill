@@ -56,7 +56,7 @@ Page({
           'content-type':'application/x-www-form-urlencoded'
         }
       }).then(res=>{
-        console.log(res)
+        // console.log(res)
         if(res.data.code==200){
           let msg=res.data.msg+'，请登录！'
           Dialog.alert({
@@ -90,7 +90,7 @@ Page({
           'content-type':'application/x-www-form-urlencoded'
         }
       }).then(res=>{
-        console.log(res)
+        // console.log(res)
         if(res.data.code==200){
           app.globalData.token=res.data.data.token
           Dialog.alert({

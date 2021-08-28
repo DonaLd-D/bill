@@ -212,3 +212,46 @@ textarea{
   color: #fff;
   text-align: center;
 }
+
+.tabList{
+  background: #f5f5f5;
+}
+.tabList>view:first-child{
+  background: #fff;
+  text-align: center;
+  height: 110rpx;
+  line-height: 110rpx;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.tabList>view:not(:first-child){
+  margin: 0 20rpx;
+}
+.tabList>view:nth-child(2){
+  background: #fff;
+  text-align: center;
+  width: 195rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.outputList>view:first-child,.incomeList>view:first-child{
+  font-size: 28rpx;
+  color: #888;
+  margin: 20rpx 0;
+}
+.outputList>view:not(:first-child),.incomeList>view:not(:first-child){
+  display: flex;
+  display: inline-block;
+  flex-wrap: wrap;
+  background: #fff;
+  margin: 0 40rpx 20rpx 0;
+  text-align: center;
+  width: 195rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+#listTabActive{
+  background-color: #377df7;
+  color: #fff;
+}
