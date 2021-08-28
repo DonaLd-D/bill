@@ -2,6 +2,7 @@
   "usingComponents": {
     "van-icon": "@vant/weapp/icon/index",
     "van-dialog": "@vant/weapp/dialog/index",
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index"
   }
 }

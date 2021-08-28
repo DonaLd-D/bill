@@ -163,6 +163,7 @@
 }
 .show-input>view:last-child{
   flex:1;
+  font-size: 42rpx;
 }
 
 .show-tab{
@@ -192,16 +193,22 @@
 .show-text>view:first-child{
   font-size: 28rpx;
   margin-bottom: 20rpx;
-}
-.textarea-unactive{
   color: #3170dd;
-}
-.textarea-active{
-  color: red;
 }
 textarea{
   width: 650rpx;
   border: 2rpx solid #eee;
   padding: 10rpx;
   font-size: 26rpx;
+}
+
+.confirmBtn{
+  width: 630rpx;
+  padding:20rpx 0;
+  margin: 0 60rpx 20rpx;
+  height: 75rpx;
+  background: #3170dd;
+  border-radius: 5rpx;
+  color: #fff;
+  text-align: center;
 }
