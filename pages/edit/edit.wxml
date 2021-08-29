@@ -1,18 +1,19 @@
 <view class="container">
   <view class="panel">
-    <view>餐饮</view>
-    <view>-24</view>
+    <view>{{type_name}}</view>
+    <view>{{pay_type==1?'-':'+'}}{{amount}}</view>
     <view class="time">
       <view>记录时间</view>
-      <view>2021-08-28 23:05</view>
+      <view>{{date}}</view>
     </view>
     <view class="notes"> 
       <view>备注</view>
-      <view>null</view>
+      <view>{{remark}}</view>
     </view>
     <view class="btn">
-      <view><van-icon name="delete-o" />删除</view>
+      <view data-id="{{id}}" catchtap="handleDelete"><van-icon name="delete-o" />删除</view>
       <view><van-icon name="records" />编辑</view>
     </view>
   </view>
+  <van-dialog id="van-dialog" />
 </view>

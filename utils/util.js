@@ -1,3 +1,13 @@
+//获取完整的时间
+const getFullTime=(date)=>{
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+  return `${[year, month, day].map(formatNumber).join('-')} ${[hour, minute].map(formatNumber).join(':')}`
+}
 //获取年和月
 const getYearMonth = date => {
   const year = date.getFullYear()
@@ -29,7 +39,7 @@ const getMonthDay=(date)=>{
   }
   return strMonth+"-"+strDay;
 }
-
+//获取小时分钟
 const getHour=(date)=>{
   let hour = date.getHours()
   let minute = date.getMinutes()
@@ -41,7 +51,7 @@ const getHour=(date)=>{
   }
   return hour+":"+minute;
 }
-
+//获取消费类型
 const getPayType=(n)=>{
   switch(n){
     case 1:
@@ -80,6 +90,7 @@ const getPayType=(n)=>{
 }
 
 module.exports = {
+  getFullTime,
   getYearMonth,
   getMonthDay,
   getHour,
