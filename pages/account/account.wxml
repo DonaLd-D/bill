@@ -12,7 +12,7 @@
     </view>
     <view class="allkind">
       <view>
-        <view catchtap="handleListTabShow">全部类型</view>
+        <view catchtap="handleListTabShow">{{listTabName}}</view>
         <view>
           <van-icon name="arrow-down" />
         </view>
@@ -26,31 +26,31 @@
     </view>
   </view>
 
-  <view class="list">
+  <view class="list" wx:for="{{list}}" wx:key="{{i.date}}" wx:for-item="i">
     <view class="title">
-      <view>2021-08-15</view>
+      <view>{{i.date}}</view>
       <view>
         <view class="output">
           <view>支</view>
-          <view>¥50.00</view>
+          <view>¥{{i.output}}</view>
         </view>
         <view class="income">
           <view>收</view>
-          <view>¥12.00</view>
+          <view>¥{{i.income}}</view>
         </view>
       </view>
     </view>
-    <view class="list-item">
+    <view class="list-item" wx:for="{{i.bills}}" wx:key="{{j.id}}" wx:for-item="j">
       <view>
         <view>
           <view class="list-icon">
             <van-icon name="records" />
           </view>
-          <view>转账</view>
+          <view>{{j.type_name}}</view>
         </view>
-        <view class="time">01:54</view>
+        <view class="time">{{j.hour}}{{j.remark?' | ':''}}{{j.remark}}</view>
       </view>
-      <view>+12.00</view>
+      <view id="{{j.pay_type==1?'minus':''}}">{{j.pay_type==1?'-':'+'}}{{j.amount}}</view>
     </view>
   </view>
 
@@ -110,16 +110,16 @@
   <van-popup closeable position="bottom" show="{{ listTabShow }}" bind:close="handleListTabShow">
     <view class="tabList">
       <view>请选择类型</view>
-      <view data-id='0' catchtap="hanleListTab" id="{{listTabId==0?'listTabActive':''}}">全部类型</view>
+      <view data-id='0' data-name="全部类型" catchtap="hanleListTab" id="{{listTabId==0?'listTabActive':''}}">全部类型</view>
       <view class="outputList">
         <view>支出</view>
-        <view id="{{listTabId==item.id?'listTabActive':''}}" catchtap="hanleListTab" data-id="{{item.id}}" wx:for="{{outputTab}}" wx:key="{{item.name}}">
+        <view id="{{listTabId==item.id?'listTabActive':''}}" catchtap="hanleListTab" data-id="{{item.id}}" wx:for="{{outputTab}}" wx:key="{{item.name}}" data-name="{{item.name}}">
           {{item.name}}
         </view>
       </view>
       <view class="incomeList">
         <view>收入</view>
-        <view id="{{listTabId==item.id?'listTabActive':''}}" catchtap="hanleListTab" data-id="{{item.id}}" wx:for="{{incomeTab}}" wx:key="{{item.name}}">
+        <view id="{{listTabId==item.id?'listTabActive':''}}" catchtap="hanleListTab" data-id="{{item.id}}" wx:for="{{incomeTab}}" wx:key="{{item.name}}" data-name="{{item.name}}">
           {{item.name}}
         </view>
       </view>

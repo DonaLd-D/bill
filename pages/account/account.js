@@ -1,6 +1,6 @@
 import request from '../../utils/request'
 import Dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog';
-import {getYearMonth,getMonthDay} from '../../utils/util'
+import {getYearMonth,getMonthDay,getHour,getPayType} from '../../utils/util'
 let app=getApp()
 
 Page({
@@ -35,6 +35,7 @@ Page({
     //消费列表相关数据
     listTabShow:false,
     listTabId:0,
+    listTabName:'全部类型',
     list:[],
     totalExpense:0,
     totalIncome:0
@@ -185,9 +186,10 @@ Page({
   //列表的消费类型
   hanleListTab(e){
     console.log(e)
-    let {id}=e.target.dataset
+    let {id,name}=e.target.dataset
     this.setData({
-      listTabId:Number(id)
+      listTabId:Number(id),
+      listTabName:name
     },()=>{
       this.getList()
     })
@@ -210,6 +212,29 @@ Page({
       console.log(res)
       if(res.data.code==200){
         let {list,totalExpense,totalIncome}=res.data.data
+        list.forEach(i=>{
+          if(i.bills&&i.bills.length){
+            i.bills.map(j=>{
+              if(!j.hasOwnProperty('hour')){
+                j.hour=getHour(new Date(Number(j.date)))
+              }
+            })
+          }
+          if(!i.hasOwnProperty('output')){
+            i.output=i.bills.filter(k=>{
+              return k.pay_type==1
+            }).reduce((total,l)=>{
+              return total+Number(l.amount)
+            },0).toFixed(2)
+          }
+          if(!i.hasOwnProperty('income')){
+            i.income=i.bills.filter(k=>{
+              return k.pay_type==2
+            }).reduce((total,l)=>{
+              return total+Number(l.amount)
+            },0).toFixed(2)
+          }
+        })
         this.setData({
           list:list,
           totalExpense:totalExpense.toFixed(2),

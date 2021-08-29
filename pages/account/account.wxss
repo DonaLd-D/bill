@@ -87,6 +87,9 @@
 .list-item>view:last-child{
   color: #f00;
 }
+#minus{
+  color: #0f0;
+}
 .list-item>view>view:first-child{
   display: flex;
 }
@@ -107,6 +110,7 @@
   bottom: 125rpx;
   right: 25rpx;
   text-align: center;
+  border: 2rpx solid #eee;
   border-radius: 50%;
   color: #377df6;
   font-size: 48rpx;
