@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="panel">
+    <view>餐饮</view>
+    <view>-24</view>
+    <view class="time">
+      <view>记录时间</view>
+      <view>2021-08-28 23:05</view>
+    </view>
+    <view class="notes"> 
+      <view>备注</view>
+      <view>null</view>
+    </view>
+    <view class="btn">
+      <view><van-icon name="delete-o" />删除</view>
+      <view><van-icon name="records" />编辑</view>
+    </view>
+  </view>
+</view>

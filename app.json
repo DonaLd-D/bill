@@ -5,7 +5,8 @@
     "pages/calc/calc",
     "pages/self/self",
     "pages/personal/personal",
-    "pages/reset/reset"
+    "pages/reset/reset",
+    "pages/edit/edit"
   ],
   "window":{
     "backgroundTextStyle":"light",

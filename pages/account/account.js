@@ -247,6 +247,13 @@ Page({
       }
     })
   },
+  //跳转至编辑页面
+  handleEdit(e){
+    let {id}=e.target.dataset
+    wx.navigateTo({
+      url: `/pages/edit/edit?id=${id}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

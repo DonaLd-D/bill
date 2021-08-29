@@ -40,7 +40,7 @@
         </view>
       </view>
     </view>
-    <view class="list-item" wx:for="{{i.bills}}" wx:key="{{j.id}}" wx:for-item="j">
+    <view class="list-item" wx:for="{{i.bills}}" wx:key="{{j.id}}" wx:for-item="j" catchtap="handleEdit" data-id="{{j.id}}">
       <view>
         <view>
           <view class="list-icon">

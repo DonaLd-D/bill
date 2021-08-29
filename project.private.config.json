@@ -11,7 +11,14 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages/edit/edit",
+          "pathName": "pages/edit/edit",
+          "query": "id=2286",
+          "scene": null
+        }
+      ]
     }
   }
 }
