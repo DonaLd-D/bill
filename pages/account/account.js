@@ -169,6 +169,8 @@ Page({
         this.setData({
           cashValue:null,
           textValue:null
+        },()=>{
+          this.getList()
         })
       }else{
         Dialog.alert({

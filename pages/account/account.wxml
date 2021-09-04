@@ -17,8 +17,8 @@
           <van-icon name="arrow-down" />
         </view>
       </view>
-      <view>
-        <view catchtap="handleDate">{{currentYear}}</view>
+      <view catchtap="handleDate">
+        <view>{{currentYear}}</view>
         <view>
           <van-icon name="arrow-down" />
         </view>
@@ -70,8 +70,8 @@
         <text catchtap="handleTab" class="{{showOutputTab? 'input-tab-active':'input-tab-normal'}}">支出</text>
         <text catchtap="handleTab" class="{{showOutputTab? 'input-tab-normal':'input-tab-active'}}">收入</text>
       </view>
-      <view>
-          <view catchtap="handleDate">{{currentMonth}}</view>
+      <view catchtap="handleDate">
+          <view>{{currentMonth}}</view>
           <view>
             <van-icon name="arrow-down" />
           </view>

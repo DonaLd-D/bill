@@ -1,27 +1,56 @@
 <view class="container">
   <view class="header">
-    <view class="calender">
-      <view>2021-08</view>
+    <view class="calender" catchtap="handlePopup">
+      <view>{{date}}</view>
       <view>
         <van-icon name="notes-o" />
       </view>
     </view>
     <view>共支出</view>
-    <view>¥112.00</view>
-    <view>共收入¥62.00</view>
+    <view>¥{{total_expense}}</view>
+    <view>共收入¥{{total_income}}</view>
   </view>
+
   <view class="content">
     <view class="progress">
       <view class="title">
         <view>收支构成</view>
         <view>
-          <text>支出</text>
-          <text>收入</text>
+          <text id="{{progress_income_active?'':'active'}}" catchtap="handleTab" data-type="progress" data-tab="output">支出</text>
+          <text id="{{progress_income_active?'active':''}}" catchtap="handleTab" data-type="progress" data-tab="income">收入</text>
         </view>
       </view>
-      <view class="progress-list">
+      <view class="progress-list" wx:for="{{progress_income_active?income_data:output_data}}" wx:key="{{item.type_id}}">
+        <view>{{item.type_name}}</view>
+        <view>¥{{item.number}}</view>
+        <view>
+          <view style="width:{{item.percentage}}"></view>
+        </view>
+        <view>{{item.percentage}}</view>
       </view>
     </view>
-    <view class="charts"></view>
+    <view class="charts">
+      <view class="title">
+        <view>收支构成</view>
+        <view>
+          <text id="{{chart_income_active?'':'active'}}" catchtap="handleTab" data-type="chart" data-tab="output">支出</text>
+          <text id="{{chart_income_active?'active':''}}" catchtap="handleTab" data-type="chart" data-tab="income">收入</text>
+        </view>
+      </view>
+      <view class="tab-list">
+      </view>
+    </view>
   </view>
+
+  <van-popup show="{{ popupShow }}" position="bottom">
+    <van-datetime-picker
+      type="year-month"
+      value="{{ currentDate }}"
+      bind:input="handleDateInput"
+      bind:confirm="handleDateConfirm"
+      bind:cancel="handleDateCancel"
+    />
+  </van-popup>
+
+  <van-dialog id="van-dialog" />
 </view>

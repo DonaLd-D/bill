@@ -89,10 +89,18 @@ const getPayType=(n)=>{
   }
 }
 
+//小数转为百分数
+const toPercent=(point)=>{
+  var str=Number(point*100).toFixed(2);
+  str+="%";
+  return str;
+}
+
 module.exports = {
   getFullTime,
   getYearMonth,
   getMonthDay,
   getHour,
-  getPayType
+  getPayType,
+  toPercent
 }

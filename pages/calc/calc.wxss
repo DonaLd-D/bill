@@ -33,3 +33,47 @@
 .header>view:last-child{
   color: #888;
 }
+
+.content{
+  padding: 20rpx;
+}
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title>view:last-child>text{
+  background: #eee;
+  border-radius: 6rpx;
+  font-size: 18rpx;
+  padding: .4em .8em;
+}
+.title>view:last-child>text:last-child{
+  margin-left: 1em;
+}
+
+#active{
+  background: #d7e5fd;
+  color: #377df6;
+}
+
+.progress-list{
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  margin-top: 33rpx;
+}
+.progress-list>view{
+  margin-left: 1em;
+}
+.progress-list>view:nth-child(2){
+  width: 50rpx;
+}
+.progress-list>view:nth-child(3){
+  width: 440rpx;
+}
+.progress-list>view:nth-child(3)>view{
+  height: 18rpx;
+  border-radius: 9rpx;
+  background: #377df6;
+}
