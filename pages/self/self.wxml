@@ -17,7 +17,7 @@
       <view><van-icon name="cluster-o" />  重制密码</view>
       <view><van-icon name="arrow" color="#aaa"/></view>
     </view>
-    <view>
+    <view catchtap="toUs">
       <view><van-icon name="cluster-o" />  关于我们</view>
       <view><van-icon name="arrow" color="#aaa"/></view>
     </view>

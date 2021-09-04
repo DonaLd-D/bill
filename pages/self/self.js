@@ -21,6 +21,11 @@ Page({
       url: '/pages/reset/reset',
     })
   },
+  toUs(){
+    wx.navigateTo({
+      url: '/pages/us/us',
+    })
+  },
   handleLogout(){
     app.globalData.token=''
     app.globalData.username=''

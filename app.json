@@ -6,7 +6,8 @@
     "pages/self/self",
     "pages/personal/personal",
     "pages/reset/reset",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/us/us"
   ],
   "window":{
     "backgroundTextStyle":"light",
