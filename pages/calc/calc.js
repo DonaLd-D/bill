@@ -1,15 +1,61 @@
 import dialog from '../../miniprogram_npm/@vant/weapp/dialog/dialog'
 import request from '../../utils/request'
 import {getYearMonth,toPercent} from '../../utils/util'
+import * as echarts from '../../ec-canvas/echarts';
 let app=getApp()
+
+let chart=null
+//echart配置选项
+function getOption(name,data){
+  return {
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      orient: 'horizontal',
+      left: 'center',
+    },
+    series:[{
+      name: name,
+      type: 'pie',
+      radius: '50%',
+      data:data,
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }]
+  }
+}
+//echart初始化函数
+function initChart(canvas, width, height, dpr){
+    chart = echarts.init(canvas, null, {
+      width: width,
+      height: height,
+      devicePixelRatio: dpr // 像素
+    });
+    canvas.setChart(chart);
+  
+    let option=getOption('',[])
+    chart.setOption(option);
+    return chart;
+}
 
 Page({
   data: {
+    ec:{
+      onInit:initChart
+    },
     date:getYearMonth(new Date()),
     popupShow:false,
     currentDate:new Date().getTime(),
     output_data:[],
     income_data:[],
+    ec_output:[],
+    ec_income:[],
     total_expense:0,
     total_income:0,
     progress_income_active:false,
@@ -78,6 +124,21 @@ Page({
           income_data:total_data.filter(item=>item.pay_type==2),
           total_expense:total_expense,
           total_income:total_income
+        },()=>{
+          let ec_output=[]
+          let ec_income=[]
+          this.data.output_data.forEach(item=>{
+            ec_output.push({value:item.number,name:item.type_name})
+          })
+          this.data.income_data.forEach(item=>{
+            ec_income.push({value:item.number,name:item.type_name})
+          })
+          this.setData({
+            ec_output:ec_output,
+            ec_income:ec_income
+          },()=>{
+            this.updateChart()
+          })
         })
         console.log(this.data)
       }else{
@@ -104,13 +165,25 @@ Page({
       if(tab=='income'&&!this.data.chart_income_active){
         this.setData({
           chart_income_active:true
+        },()=>{
+          this.updateChart()
         })
       }else if(tab=='output'&&this.data.chart_income_active){
         this.setData({
           chart_income_active:false
+        },()=>{
+          this.updateChart()
         })
       }
     }
+  },
+  //更新echarts
+  updateChart(){
+    let {chart_income_active,ec_income,ec_output}=this.data
+    let data=chart_income_active?ec_income:ec_output
+    let name=chart_income_active?'收入构成':'支出构成'
+    let option=getOption(name,data)
+    chart.setOption(option)
   },
   /**
    * 生命周期函数--监听页面加载

@@ -37,7 +37,8 @@
           <text id="{{chart_income_active?'active':''}}" catchtap="handleTab" data-type="chart" data-tab="income">收入</text>
         </view>
       </view>
-      <view class="tab-list">
+      <view class="ec">
+        <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
       </view>
     </view>
   </view>

@@ -77,3 +77,13 @@
   border-radius: 9rpx;
   background: #377df6;
 }
+
+.charts{
+  margin-top: 33rpx;
+}
+
+.ec{
+  width: 710rpx;
+  height: 710rpx;
+  margin-top: 22rpx;
+}
